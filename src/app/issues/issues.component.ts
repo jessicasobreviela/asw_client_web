@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 })
 export class IssuesComponent implements OnInit {
 
-  private apiUrl = 'https://asw-api.herokuapp.com/#!/v1/issues';
+  private apiUrl = 'https://asw-api.herokuapp.com/v1/issues';
   data: any = {};
 
   constructor(private http: Http) {
