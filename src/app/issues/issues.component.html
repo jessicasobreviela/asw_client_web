@@ -1,3 +1,9 @@
-<p>
-  issues works!
-</p>
+<ul class="issues">
+  <li *ngFor="let issue of data.issues">
+    <a routerLink="/detail/{{issue.id}}">
+      <span class="badge">{{issue.id}}</span> {{issue.title}}
+    </a>
+    <!--<button class="delete" title="delete hero"
+            (click)="delete(hero)">x</button> -->
+  </li>
+</ul>
