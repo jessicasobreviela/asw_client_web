@@ -6,7 +6,7 @@ import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/app', pathMatch: 'full' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'issues', component: IssuesComponent },
   { path: 'detail/:id', component: IssueDetailComponent },
   { path: 'user', component: UserComponent }

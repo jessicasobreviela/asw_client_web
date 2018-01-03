@@ -7,21 +7,26 @@ import { IssuesComponent } from './issues/issues.component';
 import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { UserComponent } from './user/user.component';
+import { CommonModule } from '@angular/common';
+import { StartPageComponent } from './start-page/start-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IssuesComponent,
     IssueDetailComponent,
-    UserComponent
+    UserComponent,
+    StartPageComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

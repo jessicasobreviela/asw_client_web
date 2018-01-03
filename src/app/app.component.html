@@ -1,7 +1,20 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/user">User</a>
-  <a routerLink="/issues">Issues</a>
-</nav>
-<!--<app-issues></app-issues>-->
-<router-outlet></router-outlet>
+<ul>
+  <div *ngIf="!logued">
+    <li><a routerLink="/"> {{title}} </a></li>
+    <li style="float:right" (click)="login()"><a routerLink="/issues">Login</a></li>
+  </div>
+  <div *ngIf="logued">
+    <li><a routerLink="/issues"> {{title}} </a></li>
+    <li><a routerLink="/issues">Issues</a></li>
+    <li><a routerLink="/issue"> New Issue </a></li>
+    <li style="float:right" (click)="logout()"><a routerLink="/">Logout</a></li>
+    <li style="float:right"><a routerLink="/user">User</a></li>
+  </div>
+</ul>
+
+<div *ngIf="!logued">
+  <app-start-page></app-start-page>
+</div>
+<div *ngIf="logued">
+  <router-outlet></router-outlet>
+</div>
