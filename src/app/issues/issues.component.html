@@ -1,0 +1,18 @@
+<app-issues></app-issues>
+<ul class="issues">
+  <li *ngFor="let issue of data.issues">
+    <a routerLink="/detail/{{issue.id}}">
+      <span class="badge">{{issue.id}}</span>
+      {{issue.title}},
+      {{issue.kind}},
+      {{issue.priority}},
+      {{issue.status}},
+      {{issue.votes}},
+      {{issue.assignee}},
+      {{issue.created_at}},
+      {{issue.updated_at}}
+    </a>
+    <!--<button class="delete" title="delete hero"
+            (click)="delete(hero)">x</button> -->
+  </li>
+</ul>
