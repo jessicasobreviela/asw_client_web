@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-issues',
@@ -10,25 +11,27 @@ import 'rxjs/add/operator/map';
 export class IssuesComponent implements OnInit {
 
   private apiUrl = 'https://asw-api.herokuapp.com/v1/issues';
-  data: any = {};
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
     this.getIssues();
-    this.getData();
   }
 
-  getData() {
-    return this.http.get(this.apiUrl)
-      .map((res: Response) => res.json());
+  getIssues(): Observable<any> {
+    return this.http.get(this.apiUrl + 'issues');
   }
 
-  getIssues() {
-    this.getData().subscribe(data => {
-      console.log(data);
-      this.data = data;
-    });
-  }
+  /*addIssue(issue: Issue): Observable<any> {
+    let json = JSON.stringify(issue);
+
+    //El backend recogerá un parametro json
+    let params = "json="+json;
+
+    //Establecemos cabeceras
+    let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+
+    return this.http.post(this.url+'issues', params, {headers: headers});
+  }*/
 }
