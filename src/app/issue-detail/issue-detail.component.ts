@@ -9,8 +9,7 @@ import { Location } from '@angular/common';
 })
 export class IssueDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,
-             private location: Location) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {}
 

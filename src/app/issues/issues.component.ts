@@ -10,20 +10,18 @@ import { Observable } from 'rxjs/Observable';
 })
 export class IssuesComponent implements OnInit {
 
-  private apiUrl = 'https://asw-api.herokuapp.com/v1/issues';
+  private apiUrl = 'https://asw-api.herokuapp.com/v1/';
 
-  constructor(private http: HttpClient) {
+  constructor() {
   }
 
-  ngOnInit() {
-    this.getIssues();
-  }
+  ngOnInit() {}
 
-  getIssues(): Observable<any> {
+  /*getIssues(): Observable<any> {
     return this.http.get(this.apiUrl + 'issues');
   }
 
-  /*addIssue(issue: Issue): Observable<any> {
+  addIssue(issue: Issue): Observable<any> {
     let json = JSON.stringify(issue);
 
     //El backend recogerá un parametro json
