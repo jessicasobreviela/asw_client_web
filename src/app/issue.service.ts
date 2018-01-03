@@ -5,12 +5,16 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class IssueService {
 
-  public apiUrl = 'https://asw-api.herokuapp.com/v1/';
+  public apiUrl = 'https://asw-api.herokuapp.com/v1';
 
   constructor(public http: HttpClient) { }
 
   getIssues(): Observable<any> {
-    return this.http.get(this.apiUrl + 'issues');
+    const headers = new HttpHeaders(
+      {'Authorization': 'Token de280f7acdd671459c384958bade707042e231e1'}
+    );
+    return this.http.request('GET', this.apiUrl + '/issues', {headers: headers});
+    // return this.http.get(this.apiUrl + 'issues');
   }
 
   /*addIssue(issue: Issue): Observable<any> {

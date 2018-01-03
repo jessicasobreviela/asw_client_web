@@ -1,12 +1,10 @@
-<ul>
-  <h1>Now you are on Issues!</h1>
-</ul>
+<h1>Issues</h1>
+
 
 <ul class="issues">
   <li *ngFor="let issue of issues">
-    <a routerLink="/detail/{{issue.id}}"> -->
-      <span class="badge">{{issue.id}}</span> {{issue.title}}
-    </a>
+    <a routerLink="/detail/{{issue.id}}">
+      <span class="badge">{{issue.id}}</span> {{issue.title}} </a>
     <!--<button class="delete" title="delete hero"
             (click)="delete(hero)">x</button>-->
   </li>
