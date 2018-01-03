@@ -21,9 +21,9 @@ export class IssuesComponent implements OnInit {
 
   getIssues(): void {
     this.issueService.getIssues().subscribe(result => {
-      if(result.code != 200){
+      if (result.code !== 200) {
         console.log(result);
-      }else{
+      } else {
         this.issues = result.data;
       }
     },
