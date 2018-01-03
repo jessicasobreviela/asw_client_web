@@ -1,34 +1,37 @@
-# asw_client_web
+# Issue Tracker Client for an API 
 
-## versions
+An Issue tracker Client for ASW course from UPC university using ours API.
 
+## Heroku app URL
+
+[Issue Tracker API](LINK)<- TODO: NEEDS LINK
+
+## Getting Started
+
+This Client has been developed using AngularJS Framework:
+
+### Prerequisites
+
+The project uses these following versions of frameworks:
+```
 - nodejs 6.11.1
 - npm 3.10.10
+```
 
-# ##AswClientWeb
+The base API uses the following version of frameworks, it was develop wiht Django:
+```
+- django==1.11.7
+- djangorestframework==3.7.3
+```
+## Built With
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+* [Angular](https://angular.io/) - The web framework used
+* [Heroku](https://dashboard.heroku.com/) - Cloud Application where is deployed the app
+* [Our Api](https://github.com/florenciarimolo/asw_api) - The last project developed for this course
 
-## Development server
+## Authors
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* **Florencia Rímolo** - [florenciarimolo](https://github.com/florenciarimolo)
+* **Jessica Sobreviela** - [jessicasobreviela](https://github.com/jessicasobreviela)
+* **Jonathan Nebot** - [jonator8](https://github.com/jonator8)
+* **David Marin** - [DuveD](https://github.com/DuveD)
