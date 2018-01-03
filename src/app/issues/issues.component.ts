@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import { IssueService } from '../issue.service';
 
 @Component({
   selector: 'app-issues',
@@ -10,26 +11,24 @@ import { Observable } from 'rxjs/Observable';
 })
 export class IssuesComponent implements OnInit {
 
-  private apiUrl = 'https://asw-api.herokuapp.com/v1/';
+  issues: any[];
 
-  constructor() {
+  constructor(private issueService: IssueService) {}
+
+  ngOnInit() {
+    this.getIssues();
   }
 
-  ngOnInit() {}
-
-  /*getIssues(): Observable<any> {
-    return this.http.get(this.apiUrl + 'issues');
+  getIssues(): void {
+    this.issueService.getIssues().subscribe(result => {
+      if(result.code != 200){
+        console.log(result);
+      }else{
+        this.issues = result.data;
+      }
+    },
+     error => {
+        console.log(<any>error);
+      });
   }
-
-  addIssue(issue: Issue): Observable<any> {
-    let json = JSON.stringify(issue);
-
-    //El backend recogerá un parametro json
-    let params = "json="+json;
-
-    //Establecemos cabeceras
-    let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
-
-    return this.http.post(this.url+'issues', params, {headers: headers});
-  }*/
 }

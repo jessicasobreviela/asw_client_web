@@ -9,6 +9,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { UserComponent } from './user/user.component';
 import { CommonModule } from '@angular/common';
 import { StartPageComponent } from './start-page/start-page.component';
+import { IssueService } from './issue.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { StartPageComponent } from './start-page/start-page.component';
     AppRoutingModule,
     CommonModule
   ],
-  providers: [],
+  providers: [IssueService],
   bootstrap: [AppComponent]
 })
 
