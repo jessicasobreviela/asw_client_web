@@ -1,0 +1,14 @@
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+th, td {
+  padding: 15px;
+}
+
+h5 {
+  color: gray;
+}
+
+body {
+  max-width: 500px;
+  margin: auto;
+}

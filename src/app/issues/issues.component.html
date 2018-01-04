@@ -1,12 +1,37 @@
-<h1>Issues</h1>
+<body>
+  <h1>Issues</h1>
+  <ul class="issues">
+    <table>
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>T</th>
+        <th>P</th>
+        <th>Status</th>
+        <th>Votes</th>
+        <th>Assignee</th>
+        <th>Created</th>
+        <th>Updated</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let issue of issues">
+        <tr>
+          <td>
+            <a routerLink="/detail/{{issue.id}}">
+              <span class="badge">#{{issue.id}}:</span>  {{issue.title}}
+            </a>
+          </td>
+          <td>{{issue.kind}}</td>
+          <td>{{issue.priority}}</td>
+          <td>{{issue.status}}</td>
+          <td>{{issue.votes}}</td>
+          <td>{{issue.assignee}}</td>
+          <td>{{issue.created_at}}</td>
+          <td>{{issue.updated_at}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ul>
+</body>
 
-
-<ul class="issues">
-  <li *ngFor="let issue of issues">
-    <a routerLink="/detail/{{issue.id}}">
-      <span class="badge">{{issue.id}}</span> {{issue.title}} </a>
-    <!--<button class="delete" title="delete hero"
-            (click)="delete(hero)">x</button>-->
-  </li>
-</ul>
 
