@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { IssueService} from '../issue.service';
 
 @Component({
   selector: 'app-issue-detail',
@@ -8,10 +9,16 @@ import { Location } from '@angular/common';
   styleUrls: ['./issue-detail.component.css']
 })
 export class IssueDetailComponent implements OnInit {
+  @Input() issueId: string;
+  issue: any;
+  constructor(private issueService: IssueService) {}
 
-  constructor(private route: ActivatedRoute) {}
+  ngOnInit() {this.getIssue(); }
 
-  ngOnInit() {}
+  getIssue(): any {
+    this.issue = this.issueService.getIssue(this.issueId);
+    console.log(this.issueId);
+  }
 
   /*getIssue(): void {
     const id = +this.route.snapshot.paramMap.get('id');

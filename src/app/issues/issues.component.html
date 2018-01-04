@@ -14,7 +14,9 @@
         <th>Updated</th>
       </tr>
       </thead>
-      <tbody *ngFor="let issue of issues">
+      <tbody *ngFor="let issue of issues"
+             [class.selected]="issue.id === selectedIssueId"
+             (click)="onSelect(issue.id)">
         <tr>
           <td>
             <a routerLink="/detail/{{issue.id}}">
@@ -32,6 +34,10 @@
       </tbody>
     </table>
   </ul>
+
 </body>
+
+<app-issue-detail [issueId] = "selectedIssueId"></app-issue-detail>
+
 
 

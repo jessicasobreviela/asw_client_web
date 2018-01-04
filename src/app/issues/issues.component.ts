@@ -12,13 +12,16 @@ import { IssueService } from '../issue.service';
 export class IssuesComponent implements OnInit {
 
   issues: any[];
-
+  selectedIssueId: string;
   constructor(private issueService: IssueService) {}
 
   ngOnInit() {
     this.getIssues();
   }
-
+  onSelect(id: string): void {
+    console.log(id);
+    this.selectedIssueId = id;
+  }
   getIssues(): void {
     this.issueService.getIssues().subscribe(result => {
       console.log(result);
