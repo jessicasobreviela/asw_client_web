@@ -19,7 +19,7 @@
              (click)="onSelect(issue.id)">
         <tr>
           <td>
-            <a routerLink="/detail/{{issue.id}}">
+            <a routerLink="/issues/{{issue.id}}">
               <span class="badge">#{{issue.id}}:</span>  {{issue.title}}
             </a>
           </td>
@@ -37,7 +37,7 @@
 
 </body>
 
-<app-issue-detail [issueId] = "selectedIssueId"></app-issue-detail>
+<!--<app-issue-detail [issueId] = "selectedIssueId"></app-issue-detail>-->
 
 
 

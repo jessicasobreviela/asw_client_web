@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { IssueService} from '../issue.service';
+import { IssueService } from '../issue.service';
+import { IssuesComponent } from '../issues/issues.component';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-issue-detail',
@@ -9,21 +11,30 @@ import { IssueService} from '../issue.service';
   styleUrls: ['./issue-detail.component.css']
 })
 export class IssueDetailComponent implements OnInit {
-  @Input() issueId: string;
-  issue: any;
-  constructor(private issueService: IssueService) {}
 
-  ngOnInit() {this.getIssue(); }
+  @Input () issue: any;
 
-  getIssue(): any {
-    this.issue = this.issueService.getIssue(this.issueId);
-    console.log(this.issueId);
+  constructor(private route: ActivatedRoute,
+              private issueService: IssueService,
+              private location: Location) {}
+
+  ngOnInit() {
+    this.getIssue();
   }
 
-  /*getIssue(): void {
+  getIssue(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+    this.issueService.getIssue(id).subscribe(issue => this.issue = issue);
+    console.log(this.issue);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  /*getComments(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.issueService.getComments(id).subscribe(issue => this.issue = issue);
   }*/
 
 }

@@ -1,6 +1,23 @@
 <body>
-<p>Issue-detail</p>
+<h2>Issue Details</h2>
 <div *ngIf="issue">
-  <p>{{issue.id}}</p>
+  <h3>
+    <span class="badge">#{{issue.id}}:</span> {{issue.title}}
+  </h3>
+  <label>Kind:</label>
+    <h5>{{issue.kind}}</h5>
+  <label>Priority:</label>
+    <h5>{{issue.priority}}</h5>
+  <label>Status:</label>
+    <h5>{{issue.status}}</h5>
+  <label>Votes:</label>
+    <h5>{{issue.votes}}</h5>
+  <label>Assignee:</label>
+    <h5>{{issue.assignee}}</h5>
+  <label>Created_at:</label>
+    <h5>{{issue.created_at}}</h5>
+  <label>Updated_at:</label>
+    <h5>{{issue.updated_at}}</h5>
 </div>
+<button (click)="goBack()">go back</button>
 </body>
