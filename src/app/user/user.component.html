@@ -1,20 +1,20 @@
 <body>
-  <table>
+  <table *ngIf="user">
     <tbody>
       <tr _ngcontent-c3="">
-        <td align="center" colspan="2"><img height="200"width="200" src="./assets/profile_image.jpg"></td>
+        <td align="center" colspan="2"><img height="200"width="200" src={{user.image_url}}></td>
       </tr>
       <tr>
-        <td><h5>Full name</h5></td>
-        <td>Sample name</td>
+        <td><h5>First name</h5></td>
+        <td>{{user.first_name}}</td>
+      </tr>
+      <tr>
+        <td><h5>Last name</h5></td>
+        <td>{{user.last_name}}</td>
       </tr>
       <tr>
         <td><h5>Username</h5></td>
-        <td>Sample Username</td>
-      </tr>
-      <tr>
-        <td><h5>Email</h5></td>
-        <td>sample_email@sample.com</td>
+        <td>{{user.username}}</td>
       </tr>
     </tbody>
   </table>
