@@ -1,28 +1,73 @@
 <body>
-<div class="container">
-  <h2>Issue Details</h2>
-  <div *ngIf="issue">
-    <h3>
-      <span class="badge">#{{issue.id}}:</span> {{issue.title}}
-    </h3>
-    <label>Kind:</label>
-      <h5>{{issue.kind}}</h5>
-    <label>Priority:</label>
-      <h5>{{issue.priority}}</h5>
-    <label>Status:</label>
-      <h5>{{issue.status}}</h5>
-    <label>Votes:</label>
-      <h5>{{issue.votes}}</h5>
-    <label>Assignee:</label>
-      <h5>{{issue.assignee}}</h5>
-    <label>Created_at:</label>
-      <h5>{{issue.created_at}}</h5>
-    <label>Updated_at:</label>
-      <h5>{{issue.updated_at}}</h5>
+<div *ngIf="issue">
+  <div class="container">
+    <div class="issue-header">
+      <h2>Issue #{{issue.id}}: {{issue.title}}</h2>
+    </div>
+    <div class="issue-info">
+      <div class="issue-info-left">
+        <div id="issue-main-content">
+          <p>
+            <strong>{{issue.owner}}</strong>
+            created
+            an issue {{issue.created_at}}</p> <!-- TODO: que la fecha no se muestre tan fea XD -->
+          <p>
+            <strong>Description:</strong> {{ issue.description}}
+          </p>
+
+          <div *ngFor="let att of issue.attachments">
+            <p>
+            <td>
+              <a href="#">{{att.datafile}}</a> <!-- TODO: que funcione descargarse un attachment-->
+            </td>
+            </p>
+          </div>
+
+
+          <a href='#'> <!-- TODO: añadir los links de editar la issue y subir un attachment -->
+            <button type="button" class="btn btn-default">Edit</button>
+          </a>
+          <a href='#'>
+            <button type="button" class="btn btn-default">Upload</button>
+          </a>
+
+
+        </div>
+      </div>
+
+      <div class="issue-attrs">
+        <p>
+          <strong>Assignee: </strong>
+          {{ issue.assignee}}
+        </p>
+        <p>
+          <strong>Kind:</strong> {{issue.kind}}
+        </p>
+
+        <p>
+          <strong>Priority:</strong> {{issue.priority}}
+        </p>
+
+        <p>
+          <strong>Status:</strong> {{issue.status}}
+        </p>
+
+        <p>
+          <strong>Votes:</strong> {{issue.votes}}
+        </p>
+        <p><strong>Watchers:</strong>{{issue.watchers}}</p>
+
+
+      </div>
+      <div class="issues-footer">
+        <h3>Comments ({{issue.comments.length}})</h3>
+        <div *ngFor="let comment of issue.comments"> <!-- TODO: que la fecha no se muestre tan fea XD x2 -->
+          <p><strong>{{comment.owner}}</strong> ({{comment.updated_at}}): {{comment.comment}}</p>
+        </div>
+      </div>
+      <button type="button" class="btn btn-default" (click)="goBack()">Back</button>
+    </div>
   </div>
-  <div>
-    <app-comments></app-comments>
-  </div>
-  <button (click)="goBack()">go back</button>
 </div>
+
 </body>
