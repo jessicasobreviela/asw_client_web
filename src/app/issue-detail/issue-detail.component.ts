@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Observable';
 export class IssueDetailComponent implements OnInit {
 
   @Input () issue: any;
+  selectedUsername: string;
 
   constructor(private route: ActivatedRoute,
               private issueService: IssueService,
@@ -20,6 +21,11 @@ export class IssueDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getIssue();
+  }
+
+  onSelect(username: string): void {
+    console.log(username);
+    this.selectedUsername = username;
   }
 
   getIssue(): void {

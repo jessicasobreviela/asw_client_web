@@ -7,8 +7,9 @@
     <div class="issue-info">
       <div class="issue-info-left">
         <div id="issue-main-content">
-          <p>
-            <strong>{{issue.owner}}</strong>
+          <p [class.selected]="issue.owner"
+             (click)="onSelect(issue.owner)">
+            <a routerLink="/users/{{ issue.owner}}"><strong>{{issue.owner}}</strong></a>
             created
             an issue {{issue.created_at}}</p> <!-- TODO: que la fecha no se muestre tan fea XD -->
           <p>
@@ -36,10 +37,10 @@
       </div>
 
       <div class="issue-attrs">
-        <p>
-          <strong>Assignee: </strong>
-          {{ issue.assignee}}
-        </p>
+
+        <strong [class.selected]="issue.assignee"
+                (click)="onSelect(issue.assignee)">Assignee: </strong>
+        <a routerLink="/users/{{ issue.assignee}}">{{issue.assignee}}</a>
         <p>
           <strong>Kind:</strong> {{issue.kind}}
         </p>
@@ -62,7 +63,10 @@
       <div class="issues-footer">
         <h3>Comments ({{issue.comments.length}})</h3>
         <div *ngFor="let comment of issue.comments"> <!-- TODO: que la fecha no se muestre tan fea XD x2 -->
-          <p><strong>{{comment.owner}}</strong> ({{comment.updated_at}}): {{comment.comment}}</p>
+          <p [class.selected]="issue.owner"
+                     (click)="onSelect(issue.owner)">
+            <a routerLink="/users/{{ issue.owner}}"><strong>{{issue.owner}}</strong></a> ({{comment.updated_at}}):
+            {{comment.comment}}</p>
         </div>
       </div>
       <button type="button" class="btn btn-default" (click)="goBack()">Back</button>

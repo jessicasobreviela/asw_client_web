@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import { catchError, map, tap } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
+import {catchError, map, tap} from 'rxjs/operators';
+import {of} from 'rxjs/observable/of';
 
 /*const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,13 +12,14 @@ import { of } from 'rxjs/observable/of';
 export class IssueService {
 
   public apiUrl = 'https://asw-api.herokuapp.com/v1';
+  public token = 'Token de280f7acdd671459c384958bade707042e231e1';
 
   constructor(public http: HttpClient) {
   }
 
   getIssues(): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': 'Token de280f7acdd671459c384958bade707042e231e1'}
+      {'Authorization': this.token}
     );
     return this.http.request('GET', this.apiUrl + '/issues', {headers: headers});
     // return this.http.get(this.apiUrl + 'issues');
@@ -26,7 +27,7 @@ export class IssueService {
 
   getIssue(id: number): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': 'Token de280f7acdd671459c384958bade707042e231e1'}
+      {'Authorization': this.token}
     );
     return this.http.request('GET', this.apiUrl + '/issues/' + id, {headers: headers});
     // return this.http.get(this.apiUrl + 'issues');
@@ -34,16 +35,23 @@ export class IssueService {
 
   getComments(id: number): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': 'Token de280f7acdd671459c384958bade707042e231e1'}
+      {'Authorization': this.token}
     );
     return this.http.request('GET', this.apiUrl + '/issues/' + id + /comments/, {headers: headers});
   }
 
   getComment(id: number, idComment: number): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': 'Token de280f7acdd671459c384958bade707042e231e1'}
+      {'Authorization': this.token}
     );
     return this.http.request('GET', this.apiUrl + '/issues/' + id + /comments/ + idComment, {headers: headers});
+  }
+
+  getUser(username: string): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token}
+    );
+    return this.http.request('GET', this.apiUrl + '/users/' + username, {headers: headers});
   }
 
   /** PUT: update the hero on the server */
