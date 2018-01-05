@@ -10,6 +10,7 @@ import { UserComponent } from './user/user.component';
 import { CommonModule } from '@angular/common';
 import { StartPageComponent } from './start-page/start-page.component';
 import { IssueService } from './issue.service';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { IssueService } from './issue.service';
     IssueDetailComponent,
     UserComponent,
     StartPageComponent,
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,

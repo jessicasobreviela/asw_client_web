@@ -34,7 +34,7 @@ export class IssueDetailComponent implements OnInit {
 
   /*getComments(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.issueService.getComments(id).subscribe(issue => this.issue = issue);
+    this.issueService.getComments(id).subscribe(comments => this.comments = comments);
   }*/
 
 }
