@@ -27,12 +27,12 @@ export class IssueService {
 
   postIssue(title, priority, assignee, kind, status, description): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': 'Token de280f7acdd671459c384958bade707042e231e1'}
+      {'Authorization': 'Token de280f7acdd671459c384958bade707042e231e1', 'Content-Type': 'application/json'}
     );
 
-    let body = JSON.stringify({ title, priority, assignee, kind, status, description });
+    const body = JSON.stringify({ title, description, kind, priority, status, assignee,    });
 
-    return this.http.post(this.apiUrl + '/issues', body, {headers: headers});
+    return this.http.post(this.apiUrl + '/issues/', body, {headers: headers});
     // return this.http.get(this.apiUrl + 'issues');
   }
 }
