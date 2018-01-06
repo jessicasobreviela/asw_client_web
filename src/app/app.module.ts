@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { StartPageComponent } from './start-page/start-page.component';
 import { IssueService } from './issue.service';
 import { CommentsComponent } from './comments/comments.component';
+import { NewIssueComponent } from './new-issue/new-issue.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CommentsComponent } from './comments/comments.component';
     UserComponent,
     StartPageComponent,
     CommentsComponent,
+    NewIssueComponent,
   ],
   imports: [
     BrowserModule,
