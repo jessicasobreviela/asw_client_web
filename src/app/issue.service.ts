@@ -91,7 +91,7 @@ export class IssueService {
 
   postIssue(title, priority, assignee, kind, status, description): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': 'Token de280f7acdd671459c384958bade707042e231e1', 'Content-Type': 'application/json'}
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
     );
 
     const body = JSON.stringify({ title, description, kind, priority, status, assignee,    });
