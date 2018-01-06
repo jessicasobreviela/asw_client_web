@@ -9,13 +9,13 @@ import {NewIssueComponent} from './new-issue/new-issue.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'issues', component: IssuesComponent },
-  { path: 'issues/:id', component: IssueDetailComponent },
-  { path: 'users/:user', component: UserComponent },
+  { path: 'issues/new', component: NewIssueComponent},
   { path: 'issues/:id/comments', component: CommentsComponent },
+  { path: 'issues/:id', component: IssueDetailComponent },
+  { path: 'issues', component: IssuesComponent },
+  { path: 'users/:user', component: UserComponent },
   { path: 'detail/:id', component: IssueDetailComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'issues/new', component: NewIssueComponent}
+  { path: 'user', component: UserComponent }
 ];
 
 @NgModule({

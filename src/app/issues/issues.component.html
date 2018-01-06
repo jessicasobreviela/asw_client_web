@@ -15,11 +15,11 @@
       </tr>
       </thead>
       <tbody *ngFor="let issue of issues"
-             [class.selected]="issue.id === selectedIssueId"
-             (click)="onSelect(issue.id)">
+>
         <tr>
           <td>
-            <a routerLink="/issues/{{issue.id}}">
+            <a [class.selected]="issue.id === selectedIssueId"
+                            (click)="onSelect(issue.id)" routerLink="/issues/{{issue.id}}">
               <span class="badge">#{{issue.id}}:</span>  {{issue.title}}
             </a>
           </td>
