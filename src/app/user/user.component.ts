@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
   getUser(): void {
     const username = +this.route.snapshot.paramMap.get('user');  // TODO: Coge el user como si fuera un numero
     console.log(username);
-    this.issueService.getUser(username).subscribe(user => this.user = user);
+    this.issueService.getUser(username.toString()).subscribe(user => this.user = user);
     console.log(this.user);
   }
 
