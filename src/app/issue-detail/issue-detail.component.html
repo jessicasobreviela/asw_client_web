@@ -65,7 +65,7 @@
         <div *ngFor="let comment of issue.comments">
           <p [class.selected]="issue.owner"
                      (click)="onSelect(issue.owner)">
-            <a routerLink="/users/{{ issue.owner}}"><strong>{{issue.owner}}</strong></a> ({{comment.updated_at}}):
+            <a routerLink="/users/{{ comment.owner}}"><strong>{{comment.owner}}</strong></a> ({{comment.updated_at}}):
             {{comment.comment}}</p>
         </div>
       </div>
