@@ -12,6 +12,7 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { IssueService } from './issue.service';
 import { CommentsComponent } from './comments/comments.component';
 import { NewIssueComponent } from './new-issue/new-issue.component';
+import { NewCommentComponent } from './new-comment/new-comment.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NewIssueComponent } from './new-issue/new-issue.component';
     StartPageComponent,
     CommentsComponent,
     NewIssueComponent,
+    NewCommentComponent,
   ],
   imports: [
     BrowserModule,

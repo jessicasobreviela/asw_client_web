@@ -69,6 +69,11 @@
             {{comment.comment}}</p>
         </div>
       </div>
+
+      <a routerLink="/issues/{{issue.id}}/comments/new">
+        <button type="button" class="btn btn-default">Add Comment</button>
+      </a>
+
       <button type="button" class="btn btn-default" (click)="goBack()">Back</button>
     </div>
   </div>

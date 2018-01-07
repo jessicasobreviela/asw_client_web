@@ -5,16 +5,17 @@ import { IssuesComponent } from './issues/issues.component';
 import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 import { UserComponent } from './user/user.component';
 import { CommentsComponent } from './comments/comments.component';
-import {NewIssueComponent} from './new-issue/new-issue.component';
+import { NewIssueComponent } from './new-issue/new-issue.component';
+import { NewCommentComponent } from './new-comment/new-comment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'issues/new', component: NewIssueComponent},
   { path: 'issues/:id/comments', component: CommentsComponent },
+  { path: 'issues/:id/comments/new', component: NewCommentComponent },
   { path: 'issues/:id', component: IssueDetailComponent },
   { path: 'issues', component: IssuesComponent },
   { path: 'users/:user', component: UserComponent },
-  { path: 'detail/:id', component: IssueDetailComponent },
   { path: 'user', component: UserComponent }
 ];
 

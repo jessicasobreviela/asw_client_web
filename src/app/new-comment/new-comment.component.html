@@ -1,0 +1,9 @@
+<body>
+<h1>New Comment</h1>
+<form>
+  Comment:<br>
+  <textarea type="text" id="comment" [(ngModel)]="comment" [ngModelOptions]="{standalone: true}"></textarea><br><br>
+</form>
+<button (click)="createComment()">Create comment</button><br>
+<a (click)="goBack()">Cancel</a>
+</body>

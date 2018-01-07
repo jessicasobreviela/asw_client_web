@@ -81,14 +81,6 @@ export class IssueService {
     );
   }*/
 
-  /*addIssue(issue: Issue): Observable<any> {
-    let json = JSON.stringify(issue);
-    let params = "json="+json;
-    let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
-
-    return this.http.post(this.url+'issues', params, {headers: headers});
-  }*/
-
   postIssue(title, priority, assignee, kind, status, description): Observable<any> {
     const headers = new HttpHeaders(
       {'Authorization': this.token, 'Content-Type': 'application/json'}
@@ -99,4 +91,15 @@ export class IssueService {
     return this.http.post(this.apiUrl + '/issues/', body, {headers: headers});
     // return this.http.get(this.apiUrl + 'issues');
   }
+
+  postComment(id, comment): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
+    );
+
+    const body = JSON.stringify({ comment, });
+
+    return this.http.post(this.apiUrl + '/issues/' + id + '/comments/', body, {headers: headers});
+  }
+
 }
