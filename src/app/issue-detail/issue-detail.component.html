@@ -25,14 +25,14 @@
           </div>
 
 
-          <a href='#'> <!-- TODO: añadir los links de editar la issue y subir un attachment -->
+          <a routerLink="/issues/{{issue.id}}/edit">
             <button type="button" class="btn btn-default">Edit</button>
           </a>
-          <a href='#'>
+          <a href='#'> <!-- TODO: añadir el link de subir un attachment -->
             <button type="button" class="btn btn-default">Upload</button>
           </a>
 
-          <button type="button" class="btn btn-default" (click)="deleteIssue()">Delete Issue</button>
+          <button type="button" class="btn btn-default" (click)="deleteIssue()">Delete</button>
 
         </div>
       </div>

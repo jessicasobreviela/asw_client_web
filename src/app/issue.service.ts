@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {catchError, map, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
@@ -17,11 +17,17 @@ export class IssueService {
   constructor(public http: HttpClient) {
   }
 
-  getIssues(): Observable<any> {
+  getIssues(key: string, value: string): Observable<any> {
     const headers = new HttpHeaders(
       {'Authorization': this.token}
     );
-    return this.http.request('GET', this.apiUrl + '/issues', {headers: headers});
+    console.log(key);
+    if (key === 'responsible') {
+      key = 'owner';
+    }
+    console.log(key);
+    const params = new HttpParams().set(key, value);
+    return this.http.request('GET', this.apiUrl + '/issues/', {headers: headers, params: params});
     // return this.http.get(this.apiUrl + 'issues');
   }
 
@@ -63,7 +69,7 @@ export class IssueService {
 
   postIssue(title, priority, assignee, kind, status, description): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': this.token}
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
     );
 
     const body = JSON.stringify({ title, description, kind, priority, status, assignee, });
