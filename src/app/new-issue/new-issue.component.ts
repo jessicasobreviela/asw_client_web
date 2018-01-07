@@ -35,7 +35,7 @@ export class NewIssueComponent implements OnInit {
         .subscribe(
           result => {
             alert('Issue created successfully!');
-            this.location.go('/issues');
+            this.location.go('/issues');   // TODO: hacer que realmente vuelva a /issues (cambia la url pero no va..)
             //alert(result.results);
             console.log('postIssue: ' + result.body + ' ' + result.code);
           },
