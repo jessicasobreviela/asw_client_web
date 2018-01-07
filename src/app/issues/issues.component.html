@@ -4,11 +4,11 @@
 <table class="issues-filter">
   <thead>
   <tr>
-    <th><a routerLink="/issues">All</a></th>
-    <th><a routerLink="/issues" [queryParams]="{status: 'New'}" (click)="getIssues()">New</a></th>
-    <th><a routerLink="/issues" [queryParams]="{status: 'Open'}" (click)="getIssues()">Open</a></th>
-    <th><a routerLink="/issues" [queryParams]="{responsible: 'florenciarimolo'}" (click)="getIssues()">My issues</a></th>
-    <th><a routerLink="/issues" [queryParams]="{watching: 'florenciarimolo'}" (click)="getIssues()">Watching</a></th>
+    <th class="elem"><a routerLink="/issues">All</a></th>
+    <th class="elem"><a routerLink="/issues" [queryParams]="{status: 'New'}" (click)="getIssues()">New</a></th>
+    <th class="elem"><a routerLink="/issues" [queryParams]="{status: 'Open'}" (click)="getIssues()">Open</a></th>
+    <th class="elem"><a routerLink="/issues" [queryParams]="{responsible: 'florenciarimolo'}" (click)="getIssues()">My issues</a></th>
+    <th class="elem"><a routerLink="/issues" [queryParams]="{watching: 'florenciarimolo'}" (click)="getIssues()">Watching</a></th>
   </tr>
   </thead>
 </table>

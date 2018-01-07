@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 import { IssueService } from '../issue.service';
 import {Location} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-issues',
@@ -34,12 +33,12 @@ export class IssuesComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
         console.log(params);
-        forEach(params, function (value, key) {
+        for (let key in params) {
           par_key = key;
-          par_value = value;
-        })
+          par_value= params[key];
+        }
       });
-    this.issueService.getIssues(par_key, par_value).subscribe(result => {
+    this.issueService.getIssues(par_key.toString(), par_value.toString()).subscribe(result => {
       console.log(result);
         this.issues = result.results;
     },

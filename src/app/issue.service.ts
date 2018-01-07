@@ -21,8 +21,13 @@ export class IssueService {
     const headers = new HttpHeaders(
       {'Authorization': this.token}
     );
+    console.log(key);
+    if (key === 'responsible') {
+      key = 'owner';
+    }
+    console.log(key);
     const params = new HttpParams().set(key, value);
-    return this.http.request('GET', this.apiUrl + '/issues', {headers: headers, params: params});
+    return this.http.request('GET', this.apiUrl + '/issues/', {headers: headers, params: params});
     // return this.http.get(this.apiUrl + 'issues');
   }
 
