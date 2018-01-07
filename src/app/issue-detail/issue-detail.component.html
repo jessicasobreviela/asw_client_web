@@ -9,9 +9,10 @@
         <div id="issue-main-content">
           <p [class.selected]="issue.owner"
              (click)="onSelect(issue.owner)">
-            <a routerLink="/users/{{ issue.owner}}"><strong>{{issue.owner}}</strong></a>
-            created
-            an issue ({{issue.created_at}})</p>
+            <a routerLink="/users/{{issue.owner}}"><strong>{{issue.owner}}</strong></a>
+            created an issue ({{issue.created_at}})
+          </p>
+
           <p>
             <strong>Description:</strong> {{ issue.description}}
           </p>
@@ -24,15 +25,19 @@
             </p>
           </div>
 
+          <div *ngIf="issue.owner === 'florenciarimolo'" >
+            <a routerLink="/issues/{{issue.id}}/edit">
+              <button type="button" class="btn btn-default">Edit</button>
+            </a>
+          </div>
 
-          <a routerLink="/issues/{{issue.id}}/edit">
-            <button type="button" class="btn btn-default">Edit</button>
-          </a>
           <a href='#'> <!-- TODO: añadir el link de subir un attachment -->
             <button type="button" class="btn btn-default">Upload</button>
           </a>
 
-          <button type="button" class="btn btn-default" (click)="deleteIssue()">Delete</button>
+          <div *ngIf="issue.owner === florenciarimolo" >
+            <button type="button" class="btn btn-default" (click)="deleteIssue()">Delete</button>
+          </div>
 
         </div>
       </div>
@@ -68,11 +73,13 @@
                      (click)="onSelect(comment.owner)">
             <a routerLink="/users/{{comment.owner}}"><strong>{{comment.owner}}</strong></a> ({{comment.updated_at}}):
             {{comment.comment}}
+          </p>
+          <div *ngIf="comment.owner === 'florenciarimolo'" >
             <a routerLink="/issues/{{issue.id}}/comments/{{comment.id}}/edit">
               <button type="button"> Edit </button>
             </a>
             <button type="button" (click)="deleteComment(comment.id)"> X </button>
-          </p>
+          </div>
         </div>
       </div>
 
