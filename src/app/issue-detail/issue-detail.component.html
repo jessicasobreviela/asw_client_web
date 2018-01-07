@@ -32,6 +32,7 @@
             <button type="button" class="btn btn-default">Upload</button>
           </a>
 
+          <button type="button" class="btn btn-default" (click)="deleteIssue()">Delete Issue</button>
 
         </div>
       </div>
@@ -65,8 +66,10 @@
         <div *ngFor="let comment of issue.comments">
           <p [class.selected]="issue.owner"
                      (click)="onSelect(issue.owner)">
-            <a routerLink="/users/{{ issue.owner}}"><strong>{{issue.owner}}</strong></a> ({{comment.updated_at}}):
-            {{comment.comment}}</p>
+            <a routerLink="/users/{{issue.owner}}"><strong>{{issue.owner}}</strong></a> ({{comment.updated_at}}):
+            {{comment.comment}}
+          <button type="button" (click)="deleteComment(comment.id)"> X </button>
+          </p>
         </div>
       </div>
 

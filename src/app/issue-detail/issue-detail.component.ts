@@ -34,6 +34,39 @@ export class IssueDetailComponent implements OnInit {
     console.log(this.issue);
   }
 
+  deleteIssue(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.issueService.deleteIssue(id).subscribe(
+      result => {
+        alert('Issue deleted successfully!');
+        //this.location.go('/issues');
+        this.location.back();
+        //alert(result.results);
+        console.log('deleteIssue: ' + result.body + ' ' + result.code);
+      },
+      error => {
+        //alert(error.text());
+        alert('You do not have authorization to delete this issue')
+        console.log(error.text());
+      });
+  }
+
+  deleteComment(idComment): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.issueService.deleteComment(id, idComment).subscribe(
+      result => {
+        alert('Comment deleted successfully!');
+        this.location.back();
+        //alert(result.results);
+        console.log('deleteComment: ' + result.body + ' ' + result.code);
+      },
+      error => {
+        //alert(error.text());
+        alert('You do not have authorization to delete this comment')
+        console.log(error.text());
+      });
+  }
+
   goBack(): void {
     this.location.back();
   }

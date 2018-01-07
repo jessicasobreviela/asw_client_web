@@ -54,33 +54,6 @@ export class IssueService {
     return this.http.request('GET', this.apiUrl + '/users/' + username, {headers: headers});
   }
 
-  /** PUT: update the hero on the server */
-  /*updateIssue (issue: Issue): Observable<any> {
-    return this.http.put(this.apiUrl + '/issues', issue, httpOptions).pipe(
-      tap(_ => this.log(`updated issue id=${issue.id}`)),
-      catchError(this.handleError<any>('updateIssue'))
-    );
-  }*/
-
-  /** POST: add a new hero to the server */
-  /*addIssue (issue: Issue): Observable<Issue> {
-    return this.http.post<Issue>(this.apiUrl + '/issues', issue, httpOptions).pipe(
-      tap((issue: Issue) => this.log(`added issue w/ id=${issue.id}`)),
-      catchError(this.handleError<Issue>('addIssue'))
-    );
-  }*/
-
-  /** DELETE: delete the hero from the server */
-  /*deleteIssue (issue: Issue | number): Observable<Issue> {
-    const id = typeof issue === 'number' ? issue : issue.id;
-    const url = `${this.apiUrl + '/issues'}/${id}`;
-
-    return this.http.delete<Issue>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted issue id=${id}`)),
-      catchError(this.handleError<Issue>('deleteIssue'))
-    );
-  }*/
-
   postIssue(title, priority, assignee, kind, status, description): Observable<any> {
     const headers = new HttpHeaders(
       {'Authorization': this.token, 'Content-Type': 'application/json'}
@@ -92,6 +65,24 @@ export class IssueService {
     // return this.http.get(this.apiUrl + 'issues');
   }
 
+  updateIssue(id, title, priority, assignee, kind, status, description): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
+    );
+
+    const body = JSON.stringify({ title, description, kind, priority, status, assignee, });
+
+    return this.http.put(this.apiUrl + '/issues/' + id, body, {headers: headers});
+  }
+
+  deleteIssue(id): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
+    );
+
+    return this.http.delete(this.apiUrl + '/issues/' + id, {headers: headers});
+  }
+
   postComment(id, comment): Observable<any> {
     const headers = new HttpHeaders(
       {'Authorization': this.token, 'Content-Type': 'application/json'}
@@ -100,6 +91,14 @@ export class IssueService {
     const body = JSON.stringify({ comment, });
 
     return this.http.post(this.apiUrl + '/issues/' + id + '/comments/', body, {headers: headers});
+  }
+
+  deleteComment(id, idComment): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
+    );
+
+    return this.http.delete(this.apiUrl + '/issues/' + id + '/comments/' + idComment, {headers: headers});
   }
 
 }

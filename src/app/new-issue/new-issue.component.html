@@ -30,7 +30,9 @@
     Description:<br>
     <textarea  type="text" id="description" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"></textarea><br><br>
   </form>
-  <button (click)="createIssue()">Create issue</button><br>
+  <!--<a routerLink="/issues">-->
+    <button (click)="createIssue()">Create issue</button><br>
+  <!--</a>-->
   <a (click)="goBack()">Cancel</a>
 </body>
 </html>
