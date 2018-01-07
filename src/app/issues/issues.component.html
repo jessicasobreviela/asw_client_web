@@ -1,39 +1,50 @@
 <body>
-  <h1>Issues</h1>
-  <ul class="issues">
-    <table>
-      <thead>
-      <tr>
-        <th>Title</th>
-        <th>T</th>
-        <th>P</th>
-        <th>Status</th>
-        <th>Votes</th>
-        <th>Assignee</th>
-        <th>Created</th>
-        <th>Updated</th>
-      </tr>
-      </thead>
-      <tbody *ngFor="let issue of issues"
->
-        <tr>
-          <td>
-            <a [class.selected]="issue.id === selectedIssueId"
-                            (click)="onSelect(issue.id)" routerLink="/issues/{{issue.id}}">
-              <span class="badge">#{{issue.id}}:</span>  {{issue.title}}
-            </a>
-          </td>
-          <td>{{issue.kind}}</td>
-          <td>{{issue.priority}}</td>
-          <td>{{issue.status}}</td>
-          <td>{{issue.votes}}</td>
-          <td>{{issue.assignee}}</td>
-          <td>{{issue.created_at}}</td>
-          <td>{{issue.updated_at}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </ul>
+<h1>Issues</h1>
+<p>FILTER BY:</p>
+<table class="issues-filter">
+  <thead>
+  <tr>
+    <th><a routerLink="/issues">All</a></th>
+    <th><a routerLink="/issues" [queryParams]="{status: 'New'}" (click)="getIssues()">New</a></th>
+    <th><a routerLink="/issues" [queryParams]="{status: 'Open'}" (click)="getIssues()">Open</a></th>
+    <th><a routerLink="/issues" [queryParams]="{responsible: 'florenciarimolo'}" (click)="getIssues()">My issues</a></th>
+    <th><a routerLink="/issues" [queryParams]="{watching: 'florenciarimolo'}" (click)="getIssues()">Watching</a></th>
+  </tr>
+  </thead>
+</table>
+
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>T</th>
+    <th>P</th>
+    <th>Status</th>
+    <th>Votes</th>
+    <th>Assignee</th>
+    <th>Created</th>
+    <th>Updated</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let issue of issues"
+  >
+  <tr>
+    <td>
+      <a [class.selected]="issue.id === selectedIssueId"
+         (click)="onSelect(issue.id)" routerLink="/issues/{{issue.id}}">
+        <span class="badge">#{{issue.id}}:</span> {{issue.title}}
+      </a>
+    </td>
+    <td>{{issue.kind}}</td>
+    <td>{{issue.priority}}</td>
+    <td>{{issue.status}}</td>
+    <td>{{issue.votes}}</td>
+    <td>{{issue.assignee}}</td>
+    <td>{{issue.created_at}}</td>
+    <td>{{issue.updated_at}}</td>
+  </tr>
+  </tbody>
+</table>
 
 </body>
 
