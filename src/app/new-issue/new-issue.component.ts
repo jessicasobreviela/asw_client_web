@@ -34,7 +34,8 @@ export class NewIssueComponent implements OnInit {
         this.description)
         .subscribe(
           result => {
-            this.location.back();
+            alert('Issue created successfully!');
+            this.location.go('/issues');
             //alert(result.results);
             console.log('postIssue: ' + result.body + ' ' + result.code);
           },
