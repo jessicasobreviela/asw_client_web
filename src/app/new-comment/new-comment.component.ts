@@ -27,7 +27,6 @@ export class NewCommentComponent implements OnInit {
         result => {
           alert('Comment created successfully!');
           this.location.back();
-          //alert(result.results);
           console.log('postComment: ' + result.body + ' ' + result.code);
         },
         error => {

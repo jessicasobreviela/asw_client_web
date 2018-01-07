@@ -64,9 +64,9 @@
       <div class="issues-footer">
         <h3>Comments ({{issue.comments.length}})</h3>
         <div *ngFor="let comment of issue.comments">
-          <p [class.selected]="issue.owner"
-                     (click)="onSelect(issue.owner)">
-            <a routerLink="/users/{{issue.owner}}"><strong>{{issue.owner}}</strong></a> ({{comment.updated_at}}):
+          <p [class.selected]="comment.owner"
+                     (click)="onSelect(comment.owner)">
+            <a routerLink="/users/{{comment.owner}}"><strong>{{comment.owner}}</strong></a> ({{comment.updated_at}}):
             {{comment.comment}}
           <button type="button" (click)="deleteComment(comment.id)"> X </button>
           </p>
@@ -74,7 +74,7 @@
       </div>
 
       <a routerLink="/issues/{{issue.id}}/comments/new">
-        <button type="button" class="btn btn-default">Add Comment</button>
+        <button type="button" class="btn btn-default">Add comment</button>
       </a>
 
       <button type="button" class="btn btn-default" (click)="goBack()">Back</button>

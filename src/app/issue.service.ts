@@ -54,12 +54,19 @@ export class IssueService {
     return this.http.request('GET', this.apiUrl + '/users/' + username, {headers: headers});
   }
 
+  getUsers(): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token}
+    );
+    return this.http.request('GET', this.apiUrl + '/users/', {headers: headers});
+  }
+
   postIssue(title, priority, assignee, kind, status, description): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': this.token, 'Content-Type': 'application/json'}
+      {'Authorization': this.token}
     );
 
-    const body = JSON.stringify({ title, description, kind, priority, status, assignee,    });
+    const body = JSON.stringify({ title, description, kind, priority, status, assignee, });
 
     return this.http.post(this.apiUrl + '/issues/', body, {headers: headers});
     // return this.http.get(this.apiUrl + 'issues');

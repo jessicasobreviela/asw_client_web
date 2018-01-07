@@ -1,9 +1,14 @@
 <body>
-<h1>New Comment</h1>
-<form>
-  Comment:<br>
-  <textarea type="text" id="comment" [(ngModel)]="comment" [ngModelOptions]="{standalone: true}"></textarea><br><br>
-</form>
-<button (click)="createComment()">Create comment</button><br>
-<a (click)="goBack()">Cancel</a>
+<div class="container">
+  <h1>New Comment</h1>
+  <form class="form-horizontal center">
+      <label for="comment">Comment:</label>
+      <textarea class="form-control" rows="5" id="comment" [(ngModel)]="comment"
+                [ngModelOptions]="{standalone: true}"></textarea>
+  </form>
+  <div>
+  <button class="btn btn-default" (click)="createComment()">Create comment</button>
+  <button class="btn btn-default" (click)="goBack()">Cancel</button>
+  </div>
+</div>
 </body>

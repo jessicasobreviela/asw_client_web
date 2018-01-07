@@ -21,3 +21,12 @@ input[type="text"], select, textarea {
   width: 500px;
   height: 25px;
 }
+
+.required:before {
+  content: "* ";
+  color: red;
+}
+
+.form-horizontal.center {
+  margin-bottom: 20px;
+}

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {IssueService} from '../issue.service';
 
@@ -8,7 +8,7 @@ import {IssueService} from '../issue.service';
   styleUrls: ['./new-issue.component.css']
 })
 export class NewIssueComponent implements OnInit {
-
+  @Input() users: any;
   title = '';
   kind = '';
   priority = '';
@@ -21,11 +21,13 @@ export class NewIssueComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getUsers();
   }
 
   createIssue(): void {
-    if (this.title === '' || this.kind === '' || this.priority === '') console.log('Campos obligatorios vacíos');
-    else {
+    if (this.title === '' || this.kind === '' || this.priority === '') {
+      alert('One of required fields is empty.');
+    } else {
       this.issueService.postIssue(this.title,
         this.priority,
         this.assignee,
@@ -36,14 +38,20 @@ export class NewIssueComponent implements OnInit {
           result => {
             alert('Issue created successfully!');
             this.location.go('/issues'); // TODO: hacer que realmente vuelva a /issues (cambia la url pero no va..)
-            //alert(result.results);
             console.log('postIssue: ' + result.body + ' ' + result.code);
           },
           error => {
             alert(error.text());
-            console.log(error.text());
           });
     }
+  }
+
+  getUsers(): void {
+    this.issueService.getUsers().subscribe(result => {
+        this.users = result.results;
+      }
+    )
+    ;
   }
 
   goBack(): void {
