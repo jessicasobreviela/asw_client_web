@@ -8,16 +8,24 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+
   title = 'Issue Tracker';
 
-  logued = false;
+  logKey = 'logKey';
 
-  login() {
-    this.logued = true;
+  constructor() {
   }
 
-  logout() {
-    this.logued = false;
+  loggin() {
+    localStorage.setItem( this.logKey , JSON.stringify(true));
+  }
+
+  loggout() {
+    localStorage.setItem( this.logKey , JSON.stringify(false));
+  }
+
+  loggued(): boolean {
+    return JSON.parse( localStorage.getItem(this.logKey) );
   }
 }
 
