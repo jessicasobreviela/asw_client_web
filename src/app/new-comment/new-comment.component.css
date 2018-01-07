@@ -21,3 +21,17 @@ input[type="text"], select, textarea {
   width: 500px;
   height: 25px;
 }
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.btn-default
+{
+  background-color: #0052CC !important;
+  color: white;
+}
+
+.btn-default:hover {
+  color: white;
+}
