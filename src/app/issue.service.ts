@@ -19,7 +19,7 @@ export class IssueService {
 
   getIssues(): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': this.token}
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
     );
     return this.http.request('GET', this.apiUrl + '/issues', {headers: headers});
     // return this.http.get(this.apiUrl + 'issues');
@@ -27,7 +27,7 @@ export class IssueService {
 
   getIssue(id: number): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': this.token}
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
     );
     return this.http.request('GET', this.apiUrl + '/issues/' + id, {headers: headers});
     // return this.http.get(this.apiUrl + 'issues');
@@ -35,35 +35,35 @@ export class IssueService {
 
   getComments(id: number): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': this.token}
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
     );
     return this.http.request('GET', this.apiUrl + '/issues/' + id + /comments/, {headers: headers});
   }
 
   getComment(id: number, idComment: number): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': this.token}
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
     );
     return this.http.request('GET', this.apiUrl + '/issues/' + id + /comments/ + idComment, {headers: headers});
   }
 
   getUser(username: string): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': this.token}
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
     );
     return this.http.request('GET', this.apiUrl + '/users/' + username, {headers: headers});
   }
 
   getUsers(): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': this.token}
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
     );
     return this.http.request('GET', this.apiUrl + '/users/', {headers: headers});
   }
 
   postIssue(title, priority, assignee, kind, status, description): Observable<any> {
     const headers = new HttpHeaders(
-      {'Authorization': this.token}
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
     );
 
     const body = JSON.stringify({ title, description, kind, priority, status, assignee, });
@@ -98,6 +98,16 @@ export class IssueService {
     const body = JSON.stringify({ comment, });
 
     return this.http.post(this.apiUrl + '/issues/' + id + '/comments/', body, {headers: headers});
+  }
+
+  updateComment(id, idComment, comment): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
+    );
+
+    const body = JSON.stringify({ comment, });
+
+    return this.http.put(this.apiUrl + '/issues/' + id + '/comments/' + idComment, body, {headers: headers});
   }
 
   deleteComment(id, idComment): Observable<any> {

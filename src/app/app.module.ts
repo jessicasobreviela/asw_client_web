@@ -14,6 +14,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { NewIssueComponent } from './new-issue/new-issue.component';
 import { NewCommentComponent } from './new-comment/new-comment.component';
 import { EditIssueComponent } from './edit-issue/edit-issue.component';
+import { EditCommentComponent } from './edit-comment/edit-comment.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EditIssueComponent } from './edit-issue/edit-issue.component';
     NewIssueComponent,
     NewCommentComponent,
     EditIssueComponent,
+    EditCommentComponent,
   ],
   imports: [
     BrowserModule,

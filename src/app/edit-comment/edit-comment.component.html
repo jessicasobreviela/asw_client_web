@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Edit Comment</h1>
+<div *ngIf="comment">
+  <form class="form-horizontal center">
+    <label for="comment">Comment:</label>
+    <textarea class="form-control" type="text" rows="5" id="comment" [(ngModel)]="comment.comment"
+              [ngModelOptions]="{standalone: true}"></textarea>
+  </form>
+</div>
+<div>
+  <button class="btn btn-default" (click)="editComment()">Edit comment</button>
+  <br>
+  <button class="btn btn-default" (click)="goBack()">Cancel</button>
+</div>
+</body>
+</html>

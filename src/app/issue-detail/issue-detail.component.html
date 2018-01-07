@@ -68,7 +68,10 @@
                      (click)="onSelect(comment.owner)">
             <a routerLink="/users/{{comment.owner}}"><strong>{{comment.owner}}</strong></a> ({{comment.updated_at}}):
             {{comment.comment}}
-          <button type="button" (click)="deleteComment(comment.id)"> X </button>
+            <a routerLink="/issues/{{issue.id}}/comments/{{comment.id}}/edit">
+              <button type="button"> Edit </button>
+            </a>
+            <button type="button" (click)="deleteComment(comment.id)"> X </button>
           </p>
         </div>
       </div>

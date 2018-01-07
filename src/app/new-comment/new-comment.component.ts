@@ -20,7 +20,7 @@ export class NewCommentComponent implements OnInit {
   }
 
   createComment(): void {
-    if (this.comment === '') console.log('Campos obligatorios vacíos');
+    if (this.comment === '') alert('The required field is empty.');
     else {
       const id = +this.route.snapshot.paramMap.get('id');
       this.issueService.postComment(id, this.comment).subscribe(
