@@ -46,7 +46,7 @@ export class IssueDetailComponent implements OnInit {
       },
       error => {
         //alert(error.text());
-        alert('You do not have authorization to delete this issue')
+        alert('You do not have authorization to delete this issue!')
         console.log(error.text());
       });
   }
@@ -62,7 +62,7 @@ export class IssueDetailComponent implements OnInit {
       },
       error => {
         //alert(error.text());
-        alert('You do not have authorization to delete this comment')
+        alert('You do not have authorization to delete this comment!')
         console.log(error.text());
       });
   }
