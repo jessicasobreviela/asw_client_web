@@ -4,11 +4,11 @@
 <table class="issues-filter">
   <thead>
   <tr>
-    <th class="elem"><a routerLink="/issues">All</a></th>
-    <th class="elem"><a routerLink="/issues" [queryParams]="{status: 'New'}" (click)="getIssues()">New</a></th>
-    <th class="elem"><a routerLink="/issues" [queryParams]="{status: 'Open'}" (click)="getIssues()">Open</a></th>
-    <th class="elem"><a routerLink="/issues" [queryParams]="{responsible: 'florenciarimolo'}" (click)="getIssues()">My issues</a></th>
-    <th class="elem"><a routerLink="/issues" [queryParams]="{watching: 'florenciarimolo'}" (click)="getIssues()">Watching</a></th>
+    <th class="elem"><a href="/issues/">All</a></th>
+    <th class="elem"><a href="/issues?status=New" (click)="getIssues()">New</a></th>
+    <th class="elem"><a href="/issues?status=Open" (click)="getIssues()">Open</a></th>
+    <th class="elem"><a href="/issues?responsible=florenciarimolo" (click)="getIssues()">My issues</a></th>
+    <th class="elem"><a href="/issues?watching=florenciarimolo" (click)="getIssues()">Watching</a></th>
   </tr>
   </thead>
 </table>
@@ -16,14 +16,14 @@
 <table>
   <thead>
   <tr>
-    <th>Title</th>
-    <th>T</th>
-    <th>P</th>
-    <th>Status</th>
-    <th>Votes</th>
-    <th>Assignee</th>
-    <th>Created</th>
-    <th>Updated</th>
+    <th class="elem">Title</th>
+    <th class="elem">T</th>
+    <th class="elem">P</th>
+    <th class="elem">Status</th>
+    <th class="elem">Votes</th>
+    <th class="elem">Assignee</th>
+    <th class="elem">Created</th>
+    <th class="elem">Updated</th>
   </tr>
   </thead>
   <tbody *ngFor="let issue of issues"
