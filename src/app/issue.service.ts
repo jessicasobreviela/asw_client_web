@@ -54,6 +54,13 @@ export class IssueService {
     return this.http.request('GET', this.apiUrl + '/users/' + username, {headers: headers});
   }
 
+  getUsers(): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token}
+    );
+    return this.http.request('GET', this.apiUrl + '/users/', {headers: headers});
+  }
+
   /** PUT: update the hero on the server */
   /*updateIssue (issue: Issue): Observable<any> {
     return this.http.put(this.apiUrl + '/issues', issue, httpOptions).pipe(

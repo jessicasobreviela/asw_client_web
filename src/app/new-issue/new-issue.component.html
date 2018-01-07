@@ -23,7 +23,7 @@
   </select>
   <label for="assignee">Assignee:</label>
   <select class="form-control" type="text" id="assignee" [(ngModel)]="assignee" [ngModelOptions]="{standalone: true}">
-    <option value="User">User</option>
+    <option *ngFor="let user of users" value="User">{{user.username}}</option>
   </select>
   <label for="description">Description:</label>
   <textarea class="form-control" type="text" rows="5" id="description" [(ngModel)]="description"
