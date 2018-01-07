@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <h1>New Issue</h1>
-  <form>
-    <span style="color: red; ">*</span>
-    Title:<br>
-    <input type="text" id="title" [(ngModel)]="title" [ngModelOptions]="{standalone: true}"/><br><br>
-    <span style="color: red; ">*</span>
-    Kind:<br>
-    <select  type="text" id="kind" [(ngModel)]="kind" [ngModelOptions]="{standalone: true}">
-      <option value="Bug">Bug</option>
-      <option value="Enhancement">Enhancement</option>
-      <option value="Task">Task</option>
-      <option value="Blocker">Blocker</option>
-    </select><br><br>
-    <span style="color: red; ">*</span>
-    Priority:<br>
-    <select  type="text" id="priority" [(ngModel)]="priority" [ngModelOptions]="{standalone: true}">
-      <option value="Trivial">Trivial</option>
-      <option value="Minor">Minor</option>
-      <option value="Major">Major</option>
-      <option value="Critical">Critical</option>
-      <option value="Blocker">Blocker</option>
-    </select><br><br>
-    Assignee:<br>
-    <select  type="text" id="assignee" [(ngModel)]="assignee" [ngModelOptions]="{standalone: true}">
-      <option value="User">User</option>
-    </select><br><br>
-    Description:<br>
-    <textarea  type="text" id="description" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"></textarea><br><br>
-  </form>
-  <button (click)="createIssue()">Create issue</button><br>
-  <a (click)="goBack()">Cancel</a>
+<h1>New Issue</h1>
+
+<form class="form-horizontal center">
+  <label class="required" for="title">Title:</label>
+  <input type="text" class="form-control" id="title" [(ngModel)]="title" [ngModelOptions]="{standalone: true}">
+  <label class="required" for="kind">Kind:</label>
+  <select class="form-control" type="text" id="kind" [(ngModel)]="kind" [ngModelOptions]="{standalone: true}">
+    <option value="Bug">Bug</option>
+    <option value="Enhancement">Enhancement</option>
+    <option value="Task">Task</option>
+    <option value="Blocker">Blocker</option>
+  </select>
+  <label class="required" for="priority">Priority:</label>
+  <select class="form-control" type="text" id="priority" [(ngModel)]="priority" [ngModelOptions]="{standalone: true}">
+    <option value="Trivial">Trivial</option>
+    <option value="Minor">Minor</option>
+    <option value="Major">Major</option>
+    <option value="Critical">Critical</option>
+    <option value="Blocker">Blocker</option>
+  </select>
+  <label for="assignee">Assignee:</label>
+  <select class="form-control" type="text" id="assignee" [(ngModel)]="assignee" [ngModelOptions]="{standalone: true}">
+    <option value="User">User</option>
+  </select>
+  <label for="description">Description:</label>
+  <textarea class="form-control" type="text" rows="5" id="description" [(ngModel)]="description"
+            [ngModelOptions]="{standalone: true}"></textarea>
+</form>
+<div>
+  <button class="btn btn-default" (click)="createIssue()">Create issue</button>
+  <br>
+  <button class="btn btn-default" (click)="goBack()">Cancel</button>
+</div>
 </body>
 </html>
