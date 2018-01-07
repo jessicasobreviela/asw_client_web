@@ -26,7 +26,7 @@ export class NewIssueComponent implements OnInit {
 
   createIssue(): void {
     if (this.title === '' || this.kind === '' || this.priority === '') {
-      alert('One of required fields is empty.');
+      alert('One or more of required fields is empty.');
     } else {
       this.issueService.postIssue(this.title,
         this.priority,
@@ -49,9 +49,7 @@ export class NewIssueComponent implements OnInit {
   getUsers(): void {
     this.issueService.getUsers().subscribe(result => {
         this.users = result.results;
-      }
-    )
-    ;
+    });
   }
 
   goBack(): void {

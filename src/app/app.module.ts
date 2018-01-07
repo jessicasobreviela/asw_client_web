@@ -13,6 +13,7 @@ import { IssueService } from './issue.service';
 import { CommentsComponent } from './comments/comments.component';
 import { NewIssueComponent } from './new-issue/new-issue.component';
 import { NewCommentComponent } from './new-comment/new-comment.component';
+import { EditIssueComponent } from './edit-issue/edit-issue.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NewCommentComponent } from './new-comment/new-comment.component';
     CommentsComponent,
     NewIssueComponent,
     NewCommentComponent,
+    EditIssueComponent,
   ],
   imports: [
     BrowserModule,

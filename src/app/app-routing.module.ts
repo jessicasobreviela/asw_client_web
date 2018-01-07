@@ -7,10 +7,12 @@ import { UserComponent } from './user/user.component';
 import { CommentsComponent } from './comments/comments.component';
 import { NewIssueComponent } from './new-issue/new-issue.component';
 import { NewCommentComponent } from './new-comment/new-comment.component';
+import { EditIssueComponent } from './edit-issue/edit-issue.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'issues/new', component: NewIssueComponent},
+  { path: 'issues/:id/edit', component: EditIssueComponent},
   { path: 'issues/:id/comments', component: CommentsComponent },
   { path: 'issues/:id/comments/new', component: NewCommentComponent },
   { path: 'issues/:id', component: IssueDetailComponent },
