@@ -124,4 +124,33 @@ export class IssueService {
     return this.http.delete(this.apiUrl + '/issues/' + id + '/comments/' + idComment, {headers: headers});
   }
 
+  vote(id): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
+    );
+    return this.http.post(this.apiUrl + '/issues/' + id + '/vote/', null, {headers: headers});
+
+  }
+
+  unvote(id): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
+    );
+    return this.http.delete(this.apiUrl + '/issues/' + id + '/unvote/', {headers: headers});
+  }
+
+  watch(id): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
+    );
+    return this.http.post(this.apiUrl + '/issues/' + id + '/watch/', null, {headers: headers});
+  }
+
+  unwatch(id): Observable<any> {
+    const headers = new HttpHeaders(
+      {'Authorization': this.token, 'Content-Type': 'application/json'}
+    );
+    return this.http.delete(this.apiUrl + '/issues/' + id + '/unwatch/', {headers: headers});
+  }
+
 }

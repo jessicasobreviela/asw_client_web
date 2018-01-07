@@ -7,10 +7,8 @@
     <div class="issue-info">
       <div class="issue-info-left">
         <div id="issue-main-content">
-          <p [class.selected]="issue.owner"
-             (click)="onSelect(issue.owner)">
-            <a routerLink="/users/{{issue.owner}}"><strong>{{issue.owner}}</strong></a>
-            created an issue ({{issue.created_at}})
+          <p>
+            {{issue.owner}} created an issue ({{issue.created_at}})
           </p>
 
           <p>
@@ -44,9 +42,10 @@
 
       <div class="issue-attrs">
 
-        <strong [class.selected]="issue.assignee"
-                (click)="onSelect(issue.assignee)">Assignee: </strong>
-        <a routerLink="/users/{{ issue.assignee}}">{{issue.assignee}}</a>
+        <p>
+          <strong>Assignee: </strong> {{ issue.assignee}}
+        </p>
+
         <p>
           <strong>Kind:</strong> {{issue.kind}}
         </p>
@@ -60,10 +59,14 @@
         </p>
 
         <p>
-          <strong>Votes:</strong> {{issue.votes}}
+          <strong>Votes:</strong> {{votes}}
+          (<a *ngIf="!voted" (click)="vote()">vote</a><a *ngIf="voted" (click)="unvote()">unvote</a>)
         </p>
-        <p><strong>Watchers:</strong>{{issue.watchers}}</p>
 
+        <p>
+          <strong>Watchers:</strong> {{watchers}}
+          (<a *ngIf="!watched" (click)="watch()">watch</a><a *ngIf="watched" (click)="unwatch()">unwatch</a>)
+        </p>
 
       </div>
       <div class="issues-footer">
@@ -71,7 +74,8 @@
         <div *ngFor="let comment of issue.comments">
           <p [class.selected]="comment.owner"
                      (click)="onSelect(comment.owner)">
-            <a routerLink="/users/{{comment.owner}}"><strong>{{comment.owner}}</strong></a> ({{comment.updated_at}}):
+            <strong>{{comment.owner}}</strong>
+            ({{comment.updated_at}}):
             {{comment.comment}}
           </p>
           <div *ngIf="comment.owner === 'florenciarimolo'" >
@@ -84,7 +88,7 @@
       </div>
 
       <a routerLink="/issues/{{issue.id}}/comments/new">
-        <button type="button" class="btn btn-default">Add comment</button>
+        <br><button type="button" class="btn btn-default">Add comment</button>
       </a>
 
       <button type="button" class="btn btn-default" (click)="goBack()">Back</button>

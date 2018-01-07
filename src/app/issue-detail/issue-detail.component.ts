@@ -15,6 +15,12 @@ export class IssueDetailComponent implements OnInit {
   @Input () issue: any;
   selectedUsername: string;
 
+  public voted;
+  public watched;
+
+  public votes;
+  public watchers;
+
   constructor(private route: ActivatedRoute,
               private issueService: IssueService,
               private location: Location) {}
@@ -30,8 +36,13 @@ export class IssueDetailComponent implements OnInit {
 
   getIssue(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.issueService.getIssue(id).subscribe(issue => this.issue = issue);
-    console.log(this.issue);
+    this.issueService.getIssue(id).subscribe(issue => {
+      this.issue = issue;
+      this.voted = (issue.vote == null);
+      this.watched = (issue.watch == null);
+      this.votes = issue.votes;
+      this.watchers = issue.watchers;
+    });
   }
 
   deleteIssue(): void {
@@ -71,4 +82,55 @@ export class IssueDetailComponent implements OnInit {
     this.location.back();
   }
 
+  vote(): void {
+    this.issueService.vote(this.issue.id).subscribe(
+      result => {
+        alert('Issue voted.');
+        this.voted = true;
+        this.votes = this.votes + 1;
+      },
+      error => {
+        alert('Error on issue vote')
+        console.log(error.text());
+      });
+  }
+
+  unvote(): void {
+    this.issueService.unvote(this.issue.id).subscribe(
+      result => {
+        alert('Issue unvoted.');
+        this.voted = false;
+        this.votes = this.votes - 1;
+      },
+      error => {
+        alert('Error on issue unvote')
+        console.log(error.text());
+      });
+  }
+
+  watch(): void {
+    this.issueService.watch(this.issue.id).subscribe(
+      result => {
+        alert('Issue watch.');
+        this.watched = true;
+        this.watchers = this.watchers + 1;
+      },
+      error => {
+        alert('Error on issue unwatch')
+        console.log(error.text());
+      });
+  }
+
+  unwatch(): void {
+    this.issueService.unwatch(this.issue.id).subscribe(
+      result => {
+        alert('Issue unwatched.');
+        this.watched = false;
+        this.watchers = this.watchers - 1;
+      },
+      error => {
+        alert('Error on issue unwatch')
+        console.log(error.text());
+      });
+  }
 }
