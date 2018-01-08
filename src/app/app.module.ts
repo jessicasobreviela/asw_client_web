@@ -51,7 +51,8 @@ import {RouterModule} from '@angular/router';
     ]),
   ],
   providers: [IssueService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [ RouterModule ]
 })
 
 export class AppModule { }
