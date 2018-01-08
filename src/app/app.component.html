@@ -4,11 +4,11 @@
     <li style="float:right" (click)="loggin()"><a routerLink="/issues">Login</a></li>
   </div>
   <div *ngIf="loggued()">
-    <li><a href="/#/issues/"> {{title}} </a></li>
-    <li><a href="/#/issues/">Issues</a></li>
-    <li><a href="/#/issues/new"> New Issue </a></li>
+    <li><a href="/issues/"> {{title}} </a></li>
+    <li><a href="/issues/">Issues</a></li>
+    <li><a href="/issues/new"> New Issue </a></li>
     <li style="float:right" (click)="loggout()"><a routerLink="/">Logout</a></li>
-    <li style="float:right"><a href="/#/user">User</a></li>
+    <li style="float:right"><a href="/user">User</a></li>
   </div>
 </ul>
 
