@@ -12,15 +12,15 @@ import { EditCommentComponent } from './edit-comment/edit-comment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: '#/issues/new', component: NewIssueComponent},
-  { path: '#/issues/:id/edit', component: EditIssueComponent},
-  { path: '#/issues/:id/comments', component: CommentsComponent },
-  { path: '#/issues/:id/comments/:idComment/edit', component: EditCommentComponent },
-  { path: '#/issues/:id/comments/new', component: NewCommentComponent },
-  { path: '#/issues/:id', component: IssueDetailComponent },
-  { path: '#/issues', component: IssuesComponent },
-  { path: '#/users/:user', component: UserComponent },
-  { path: '#/user', component: UserComponent }
+  { path: 'issues/new', component: NewIssueComponent},
+  { path: 'issues/:id/edit', component: EditIssueComponent},
+  { path: 'issues/:id/comments', component: CommentsComponent },
+  { path: 'issues/:id/comments/:idComment/edit', component: EditCommentComponent },
+  { path: 'issues/:id/comments/new', component: NewCommentComponent },
+  { path: 'issues/:id', component: IssueDetailComponent },
+  { path: 'issues', component: IssuesComponent },
+  { path: 'users/:user', component: UserComponent },
+  { path: 'user', component: UserComponent }
 ];
 
 @NgModule({
