@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { IssuesComponent } from './issues/issues.component';
 import { IssueDetailComponent } from './issue-detail/issue-detail.component';
@@ -28,6 +28,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   exports: [ RouterModule ],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   declarations: []
 })
 export class AppRoutingModule { }

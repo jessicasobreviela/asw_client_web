@@ -15,7 +15,6 @@ import { NewIssueComponent } from './new-issue/new-issue.component';
 import { NewCommentComponent } from './new-comment/new-comment.component';
 import { EditIssueComponent } from './edit-issue/edit-issue.component';
 import { EditCommentComponent } from './edit-comment/edit-comment.component';
-import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -35,24 +34,10 @@ import {RouterModule} from '@angular/router';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    CommonModule,
-    RouterModule.forRoot([
-      { path: '', redirectTo: '/', pathMatch: 'full' },
-      { path: 'issues/new', component: NewIssueComponent},
-      { path: 'issues/:id/edit', component: EditIssueComponent},
-      { path: 'issues/:id/comments', component: CommentsComponent },
-      { path: 'issues/:id/comments/:idComment/edit', component: EditCommentComponent },
-      { path: 'issues/:id/comments/new', component: NewCommentComponent },
-      { path: 'issues/:id', component: IssueDetailComponent },
-      { path: 'issues', component: IssuesComponent },
-      { path: 'users/:user', component: UserComponent },
-      { path: 'user', component: UserComponent }
-
-    ]),
+    CommonModule
   ],
   providers: [IssueService],
-  bootstrap: [AppComponent],
-  exports: [ RouterModule ]
+  bootstrap: [AppComponent]
 })
 
 export class AppModule { }
