@@ -11,7 +11,7 @@ import { EditIssueComponent } from './edit-issue/edit-issue.component';
 import { EditCommentComponent } from './edit-comment/edit-comment.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/#/issues/', pathMatch: 'full' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '#/issues/new', component: NewIssueComponent},
   { path: '#/issues/:id/edit', component: EditIssueComponent},
   { path: '#/issues/:id/comments', component: CommentsComponent },
