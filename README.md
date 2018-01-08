@@ -4,8 +4,8 @@ An Issue tracker Client for ASW course from UPC university using ours API.
 
 ## Heroku app URL
 
-[Issue Tracker API](LINK)<- TODO: NEEDS LINK
-
+[Issue Tracker API](https://asw-js-client.herokuapp.com)
+https://asw-js-client.herokuapp.com
 ## Getting Started
 
 This Client has been developed using AngularJS Framework:
